@@ -1,17 +1,20 @@
-var express = require('express');
-var router = express.Router();
+import { Router } from 'express';
+
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+Router.get('/', function(req, res, next) {
   // res.send('respond with a resource');
 
-  res.json([{
-  	id: 1,
-  	username: "samsepi0l"
-  }, {
-  	id: 2,
-  	username: "D0loresH4ze"
-  }]);
+  res.json([
+    {
+      id: 1,
+      username: "samsepi0l",
+    }, 
+    {
+    	id: 2,
+    	username: "D0loresH4ze",
+    }
+  ]);
 });
 
-module.exports = router;
+export default Router;

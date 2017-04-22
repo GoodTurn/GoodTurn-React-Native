@@ -1,12 +1,13 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const cors = require('cors');
-const config = require('./config.js')
-const massive = require('massive');
+import express from 'express';
+import bodyParser from 'body-parser';
+import session from 'express-session';
+import cors from 'cors';
 
+import config from './config';
+import massive from 'massive';
 
-var app = module.exports = express();
+// Cameron, why the module.exports?? I forgot
+const app = module.exports = express();
 const corsOptions = {
 	origin: 'http://localhost:8080'
 };
@@ -19,14 +20,11 @@ app.use(session({
 	secret: config.secret
 }));
 
-
-
-var conn = massive.connectSync({
+const conn = massive.connectSync({
   connectionString: config.connectionString
 });
 app.set('db', conn);
-var db = app.get('db');
-
+const db = app.get('db');
 
 // const feedCtrl = require('./feedCtrl.js')
 const profileCtrl = require('./profileCtrl.js')
@@ -43,6 +41,6 @@ app.put('/feed', profileCtrl.updateCoords)
 
 
 
-app.listen(port, function () {
+app.listen(port, () => {
   console.log('LISTENING..........' + port);
 })
