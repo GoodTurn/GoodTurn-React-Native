@@ -1,0 +1,24 @@
+{
+  "name": "GoodTurn",
+  "version": "0.1.0",
+  "description": "## Contains: * React Native App * Frontend using ReactJS * Express.js server * SQL database",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thuey/GoodTurn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thuey/GoodTurn/issues"
+  },
+  "homepage": "https://github.com/thuey/GoodTurn#readme",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
+  }
+}
