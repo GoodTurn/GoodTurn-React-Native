@@ -1,18 +1,17 @@
-import React from 'react';
-import { TextInput } from 'react-native'
+import React, { PureComponent, PropTypes } from 'react';
+import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { search } from '../actions/action_feed.js';
+import { search } from '../actions/action_feed';
 
-class Searchbar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {term: ''};
-    this.onInputChange = this.onInputChange.bind(this);
+class Searchbar extends PureComponent {
+  static propTypes = {
+    search: PropTypes.any,
   }
+  state = { term: '' };
 
-  onInputChange(term) {
-    this.setState({term: term});
+  onInputChange = (term) => {
+    this.setState({ term });
     this.props.search(term);
   }
 
@@ -26,8 +25,8 @@ class Searchbar extends React.Component {
         style={styles.inputStyle}
         onChangeText={this.onInputChange}
         placeholderTextColor="#F2EEEB"
-        />
-    )
+      />
+    );
   }
 }
 
@@ -43,12 +42,9 @@ const styles = {
     marginHorizontal: 10,
     borderRadius: 3,
     fontSize: 14,
+  },
+};
 
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ search }, dispatch);
-}
+const mapDispatchToProps = dispatch => bindActionCreators({ search }, dispatch);
 
 export default connect(null, mapDispatchToProps)(Searchbar);
